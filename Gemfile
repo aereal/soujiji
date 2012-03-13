@@ -26,6 +26,7 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'rspec-rails'
   gem 'fabrication'
+  gem 'forgery'
 end
 
 group :test do
