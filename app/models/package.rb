@@ -1,5 +1,5 @@
 class Package < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, :lang, presence: true
 
   belongs_to :lang
 end
