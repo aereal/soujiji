@@ -1,5 +1,5 @@
 describe Language do
-  subject { Fabricate.build(:lang) }
+  subject { Fabricate.build(:language) }
 
   describe :packages do
     describe :association do
@@ -12,7 +12,7 @@ describe Language do
   describe :name do
     describe :validation do
       context "when given empty name" do
-        subject { Fabricate.build(:nameless_lang) }
+        subject { Fabricate.build(:nameless_language) }
 
         it { should_not be_valid }
       end
