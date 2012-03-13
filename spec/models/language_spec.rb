@@ -1,4 +1,4 @@
-describe Lang do
+describe Language do
   subject { Fabricate.build(:lang) }
 
   describe :packages do
