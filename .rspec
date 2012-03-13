@@ -2,3 +2,4 @@
 --require ./spec/spec_helper.rb
 --fail-fast
 --format documentation
+--drb
