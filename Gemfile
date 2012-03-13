@@ -25,6 +25,7 @@ gem 'jquery-rails'
 # Test features with generators
 group :test, :development do
   gem 'rspec-rails'
+  gem 'fabrication'
 end
 
 group :test do

@@ -41,6 +41,7 @@ GEM
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
+    fabrication (1.3.2)
     ffi (1.0.11)
     growl (1.0.3)
     guard (1.0.1)
@@ -136,6 +137,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  fabrication
   growl
   guard-bundler
   guard-rspec
