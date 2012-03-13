@@ -29,6 +29,14 @@ end
 
 group :test do
   gem 'spork-rails'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem 'guard-spork'
+
+  if /darwin/i === RUBY_PLATFORM
+    gem 'rb-fsevent'
+    gem 'growl'
+  end
 end
 
 # To use ActiveModel has_secure_password
