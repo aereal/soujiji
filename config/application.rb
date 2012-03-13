@@ -64,6 +64,7 @@ module Soujiji
 
     config.generators do |g|
       g.test_framework :rspec, fixture_replacement: true
+      g.fixture_replacement :fabrication
     end
   end
 end
