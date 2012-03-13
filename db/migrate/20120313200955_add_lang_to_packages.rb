@@ -1,6 +1,8 @@
 class AddLangToPackages < ActiveRecord::Migration
   def change
-    add_column :packages, :lang, :references
+    change_table :packages do |t|
+      t.references :lang
+    end
 
   end
 end
