@@ -1,5 +1,5 @@
 Fabricator :package do
-  name 'Rails'
+  name { Forgery::Name.full_name.underscore }
 end
 
 Fabricator :nameless_package, from: :package do

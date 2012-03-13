@@ -1,5 +1,5 @@
 Fabricator :lang do
-  name 'Ruby'
+  name { Forgery::Personal.language }
 end
 
 Fabricator :nameless_lang, from: :lang do
