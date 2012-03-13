@@ -1,16 +1,16 @@
 describe Package do
   subject { Fabricate.build(:package) }
 
-  describe :lang do
+  describe :language do
     describe :association do
-      it { should respond_to :lang }
+      it { should respond_to :language }
 
-      it { should respond_to :lang= }
+      it { should respond_to :language= }
     end
 
     describe :validation do
       context "when given no language" do
-        subject { Fabricate.build(:package, lang: nil) }
+        subject { Fabricate.build(:package, language: nil) }
 
         it { should_not be_valid }
       end
