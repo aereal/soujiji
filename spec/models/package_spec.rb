@@ -1,7 +1,7 @@
 describe Package do
-  describe :lang do
-    subject { Fabricate.build(:package) }
+  subject { Fabricate.build(:package) }
 
+  describe :lang do
     it { should respond_to :lang }
 
     it { should respond_to :lang= }
@@ -20,8 +20,6 @@ describe Package do
   end
 
   context "when given some name" do
-    subject { Fabricate.build(:package) }
-
     it { should be_valid }
   end
 end
