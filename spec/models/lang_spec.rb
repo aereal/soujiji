@@ -1,13 +1,17 @@
 describe Lang do
   subject { Fabricate.build(:lang) }
 
-  context "when given empty name" do
-    subject { Fabricate.build(:nameless_lang) }
+  describe :name do
+    describe :validation do
+      context "when given empty name" do
+        subject { Fabricate.build(:nameless_lang) }
 
-    it { should_not be_valid }
-  end
+        it { should_not be_valid }
+      end
 
-  context "when given some name" do
-    it { should be_valid }
+      context "when given some name" do
+        it { should be_valid }
+      end
+    end
   end
 end
