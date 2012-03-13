@@ -1,6 +1,14 @@
 describe Lang do
   subject { Fabricate.build(:lang) }
 
+  describe :packages do
+    describe :association do
+      it { should respond_to :packages }
+
+      it { should respond_to :packages= }
+    end
+  end
+
   describe :name do
     describe :validation do
       context "when given empty name" do
