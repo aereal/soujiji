@@ -11,8 +11,8 @@ class PackagesController < ApplicationController
   end
 
   def show
-    found = Package.where(name: Rack::Utils.unescape(params[:name])).exists?
-    head found ? :ok : :not_found
+    @package = Package.find_by_name(Rack::Utils.unescape(params[:name]))
+    head @package ? :ok : :not_found
   end
 
   def edit

@@ -19,6 +19,18 @@ describe PackagesController do
         it { should be_ok }
       end
     end
+
+    describe :assigns do
+      describe :package do
+        subject { assigns(:package) }
+
+        context "when given persisted Package" do
+          let(:package) { Fabricate(:package) }
+
+          it { should eq package }
+        end
+      end
+    end
   end
 
   describe :GET, :new do
