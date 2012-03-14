@@ -25,6 +25,10 @@ class PackagesController < ApplicationController
   end
 
   def update
+    @package = Package.find_by_name(Rack::Utils.unescape(params[:name]))
+    if @package.update_attributes(params[:package])
+      redirect_to action: :show, name: @package.name
+    end
   end
 
   def destroy

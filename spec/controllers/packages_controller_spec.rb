@@ -1,4 +1,27 @@
 describe PackagesController do
+  describe :PUT, :update do
+    before { post :update, name: package.name, package: package_attrs }
+
+    let(:package_attrs) { package.attributes }
+    let(:package) { Fabricate(:package) }
+
+    describe :response do
+      subject { response }
+
+      context "when successfully updated" do
+        it { should redirect_to action: :show, name: package.name }
+      end
+    end
+
+    describe :assigns, :package do
+      subject { assigns(:package) }
+
+      it { should be_a Package }
+
+      it { should be_persisted }
+    end
+  end
+
   describe :GET, :edit do
     let(:package_name) { Rack::Utils.escape package.name }
 
