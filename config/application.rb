@@ -63,7 +63,7 @@ module Soujiji
     config.assets.version = '1.0'
 
     config.generators do |g|
-      g.test_framework :rspec, fixture_replacement: true
+      g.test_framework :rspec, fixture: true
       g.fixture_replacement :fabrication
     end
   end
