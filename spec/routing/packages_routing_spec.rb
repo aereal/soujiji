@@ -24,4 +24,10 @@ describe :routes, :packages do
 
     it { should route_to controller: 'packages', action: 'edit', name: package_name }
   end
+
+  describe :PUT, :update do
+    subject { {put: "/lib/#{package_name}"} }
+
+    it { should route_to controller: 'packages', action: 'update', name: package_name }
+  end
 end

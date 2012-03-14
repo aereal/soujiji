@@ -3,7 +3,7 @@ Soujiji::Application.routes.draw do
   post "lib" => 'packages#create'
   get "lib/:name" => 'packages#show'
   get "lib/:name/_edit" => 'packages#edit'
-  get "lib/update"
+  put "lib/:name" => 'packages#update'
   get "lib/destroy"
 
   get 'languages' => 'languages#index'
