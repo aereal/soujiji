@@ -1,4 +1,22 @@
 describe PackagesController do
+  describe :GET, :new do
+    before { get :new }
+
+    describe :response do
+      subject { response }
+
+      it { should be_ok }
+    end
+
+    describe :assigns do
+      describe :package do
+        subject { assigns(:package) }
+
+        it { should be_a_new Package }
+      end
+    end
+  end
+
   describe :GET, :index do
     before { get :index }
 

@@ -4,6 +4,7 @@ class PackagesController < ApplicationController
   end
 
   def new
+    @package = Package.new
   end
 
   def create
