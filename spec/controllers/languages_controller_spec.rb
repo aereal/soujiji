@@ -1,4 +1,23 @@
 describe LanguagesController do
+  describe :GET, :show do
+    before { get :show, name: language.name }
+
+    describe :response do
+      subject { response }
+
+      context "when given unknown Language" do
+        let(:language) { Fabricate.build(:language) }
+
+        it { should be_not_found }
+      end
+
+      context "when given persisted Language" do
+        let(:language) { Fabricate(:language) }
+
+        it { should be_ok }
+      end
+    end
+
   describe :GET, :index do
     before { get :index }
 
