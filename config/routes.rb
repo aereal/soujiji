@@ -1,4 +1,6 @@
 Soujiji::Application.routes.draw do
+  get 'languages' => 'languages#index'
+  get 'languages/:name' => 'languages#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
