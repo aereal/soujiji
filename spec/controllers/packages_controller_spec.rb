@@ -1,4 +1,26 @@
 describe PackagesController do
+  describe :DELETE, :destroy do
+    before { post :destroy, name: package.name }
+
+    let(:package) { Fabricate(:package) }
+
+    describe :response do
+      subject { response }
+
+      context "when successfully updated" do
+        it { should redirect_to action: :index }
+      end
+    end
+
+    describe :assigns, :package do
+      subject { assigns(:package) }
+
+      it { should be_a Package }
+
+      it { should be_destroyed }
+    end
+  end
+
   describe :PUT, :update do
     before { post :update, name: package.name, package: package_attrs }
 

@@ -32,5 +32,9 @@ class PackagesController < ApplicationController
   end
 
   def destroy
+    @package = Package.find_by_name(Rack::Utils.unescape(params[:name]))
+    if @package.destroy
+      redirect_to action: :index
+    end
   end
 end
