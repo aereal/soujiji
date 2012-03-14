@@ -8,6 +8,10 @@ class PackagesController < ApplicationController
   end
 
   def create
+    @package = Package.new(params[:package])
+    if @package.save
+      redirect_to action: :show, name: @package.name
+    end
   end
 
   def show
