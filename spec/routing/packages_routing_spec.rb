@@ -7,6 +7,12 @@ describe :routes, :packages do
     it { should route_to 'packages#index' }
   end
 
+  describe :GET, :new do
+    subject { {get: '/lib/_new'} }
+
+    it { should route_to 'packages#new' }
+  end
+
   describe :POST, :create do
     subject { {post: '/lib'} }
 
