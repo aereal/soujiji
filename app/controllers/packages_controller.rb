@@ -1,4 +1,6 @@
 class PackagesController < ApplicationController
+  before_filter :find_package, only: [:show, :edit, :update, :destroy]
+
   def index
     @packages = Package.all
   end
@@ -15,26 +17,28 @@ class PackagesController < ApplicationController
   end
 
   def show
-    @package = Package.find_by_name(Rack::Utils.unescape(params[:name]))
     head @package ? :ok : :not_found
   end
 
   def edit
-    @package = Package.find_by_name(Rack::Utils.unescape(params[:name]))
     head @package ? :ok : :not_found
   end
 
   def update
-    @package = Package.find_by_name(Rack::Utils.unescape(params[:name]))
     if @package.update_attributes(params[:package])
       redirect_to action: :show, name: @package.name
     end
   end
 
   def destroy
-    @package = Package.find_by_name(Rack::Utils.unescape(params[:name]))
     if @package.destroy
       redirect_to action: :index
     end
   end
+
+  private
+
+    def find_package
+      @package = Package.find_by_name(Rack::Utils.unescape(params[:name]))
+    end
 end
