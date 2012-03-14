@@ -1,4 +1,6 @@
 describe :routes, :packages do
+  let(:package_name) { Rack::Utils.escape Fabricate(:package).name }
+
   describe :GET, :index do
     subject { {get: '/lib'} }
 
@@ -9,5 +11,11 @@ describe :routes, :packages do
     subject { {post: '/lib'} }
 
     it { should route_to 'packages#create' }
+  end
+
+  describe :GET, :show do
+    subject { {get: "/lib/#{package_name}"} }
+
+    it { should route_to controller: 'packages', action: 'show', name: package_name }
   end
 end
