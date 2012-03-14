@@ -1,4 +1,16 @@
 Soujiji::Application.routes.draw do
+  get "packages/index"
+
+  get "packages/create"
+
+  get "packages/show"
+
+  get "packages/edit"
+
+  get "packages/update"
+
+  get "packages/destroy"
+
   get 'languages' => 'languages#index'
   get 'languages/:name' => 'languages#show'
   # The priority is based upon order of creation:
