@@ -1,15 +1,10 @@
 Soujiji::Application.routes.draw do
-  get "packages/index"
-
-  get "packages/create"
-
-  get "packages/show"
-
-  get "packages/edit"
-
-  get "packages/update"
-
-  get "packages/destroy"
+  get "lib" => 'packages#index'
+  get "lib/create"
+  get "lib/show"
+  get "lib/edit"
+  get "lib/update"
+  get "lib/destroy"
 
   get 'languages' => 'languages#index'
   get 'languages/:name' => 'languages#show'
