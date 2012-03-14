@@ -5,6 +5,7 @@ class LanguagesController < ApplicationController
   end
 
   def show
-    head (Language.where(name: params[:name]).exists? ? :ok : :not_found)
+    @language = Language.find_by_name(params[:name])
+    head(!!@language ? :ok : :not_found)
   end
 end

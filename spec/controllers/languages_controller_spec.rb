@@ -18,6 +18,25 @@ describe LanguagesController do
       end
     end
 
+    describe :assigns do
+      describe :language do
+        subject { assigns(:language) }
+
+        context "when given unknown Language" do
+          let(:language) { Fabricate.build(:language) }
+
+          it { should_not be }
+        end
+
+        context "when given persisted Language" do
+          let(:language) { Fabricate(:language) }
+
+          it { should eq language }
+        end
+      end
+    end
+  end
+
   describe :GET, :index do
     before { get :index }
 
