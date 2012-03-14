@@ -20,6 +20,8 @@ class PackagesController < ApplicationController
   end
 
   def edit
+    @package = Package.find_by_name(Rack::Utils.unescape(params[:name]))
+    head @package ? :ok : :not_found
   end
 
   def update

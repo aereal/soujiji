@@ -1,4 +1,38 @@
 describe PackagesController do
+  describe :GET, :edit do
+    let(:package_name) { Rack::Utils.escape package.name }
+
+    before { get :edit, name: package_name }
+
+    describe :response do
+      subject { response }
+
+      context "when given missing Package" do
+        let(:package) { Fabricate.build(:package) }
+
+        it { should be_not_found }
+      end
+
+      context "when given persisted Package" do
+        let(:package) { Fabricate(:package) }
+
+        it { should be_ok }
+      end
+    end
+
+    describe :assigns do
+      describe :package do
+        subject { assigns(:package) }
+
+        context "when given persisted Package" do
+          let(:package) { Fabricate(:package) }
+
+          it { should eq package }
+        end
+      end
+    end
+  end
+
   describe :GET, :show do
     let(:package_name) { Rack::Utils.escape package.name }
 
