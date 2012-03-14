@@ -15,8 +15,6 @@ describe LanguagesController do
         it { should be_a Array }
 
         context "when persisted no languages" do
-          before { Language.delete_all }
-
           it { should be_empty }
         end
 
