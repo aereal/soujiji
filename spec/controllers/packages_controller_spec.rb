@@ -1,47 +1,34 @@
-require 'spec_helper'
-
 describe PackagesController do
+  describe :GET, :index do
+    before { get :index }
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
+    describe :response do
+      subject { response }
+
+      it { should be_ok }
+    end
+
+    describe :assigns do
+      describe :packages do
+        subject { assigns(:packages) }
+
+        it { should be_a Array }
+
+        context "when persisted no packages" do
+          it { should be_empty }
+        end
+
+        context "when persisted any packages" do
+          let(:n) { rand(10) }
+
+          before do
+            n.times { Fabricate(:package) }
+            get :index
+          end
+
+          it { should_not be_empty }
+        end
+      end
     end
   end
-
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
-  end
-
 end
