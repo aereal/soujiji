@@ -18,4 +18,10 @@ describe :routes, :packages do
 
     it { should route_to controller: 'packages', action: 'show', name: package_name }
   end
+
+  describe :GET, :edit do
+    subject { {get: "/lib/#{package_name}/_edit"} }
+
+    it { should route_to controller: 'packages', action: 'edit', name: package_name }
+  end
 end

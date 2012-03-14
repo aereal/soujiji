@@ -2,7 +2,7 @@ Soujiji::Application.routes.draw do
   get "lib" => 'packages#index'
   post "lib" => 'packages#create'
   get "lib/:name" => 'packages#show'
-  get "lib/edit"
+  get "lib/:name/_edit" => 'packages#edit'
   get "lib/update"
   get "lib/destroy"
 
