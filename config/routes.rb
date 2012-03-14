@@ -1,6 +1,6 @@
 Soujiji::Application.routes.draw do
   get "lib" => 'packages#index'
-  get "lib/create"
+  post "lib" => 'packages#create'
   get "lib/show"
   get "lib/edit"
   get "lib/update"
