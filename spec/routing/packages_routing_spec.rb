@@ -30,4 +30,10 @@ describe :routes, :packages do
 
     it { should route_to controller: 'packages', action: 'update', name: package_name }
   end
+
+  describe :DELETE, :destroy do
+    subject { {delete: "lib/#{package_name}"} }
+
+    it { should route_to controller: 'packages', action: 'destroy', name: package_name }
+  end
 end
