@@ -1,5 +1,5 @@
-describe Package do
-  subject { Fabricate.build(:package) }
+describe Library do
+  subject { Fabricate.build(:library) }
 
   describe :language do
     describe :association do
@@ -10,7 +10,7 @@ describe Package do
 
     describe :validation do
       context "when given no language" do
-        subject { Fabricate.build(:package, language: nil) }
+        subject { Fabricate.build(:library, language: nil) }
 
         it { should_not be_valid }
       end
@@ -20,7 +20,7 @@ describe Package do
   describe :name do
     describe :validation do
       context "when given empty name" do
-        subject { Fabricate.build(:nameless_package) }
+        subject { Fabricate.build(:nameless_library) }
 
         it { should_not be_valid }
       end

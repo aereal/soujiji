@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "packages/edit.html.haml" do
+describe "libraries/create.html.haml" do
   pending "add some examples to (or delete) #{__FILE__}"
 end

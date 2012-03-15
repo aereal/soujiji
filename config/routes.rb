@@ -1,11 +1,11 @@
 Soujiji::Application.routes.draw do
-  get "lib" => 'packages#index'
-  get "lib/_new" => 'packages#new'
-  post "lib" => 'packages#create'
-  get "lib/:name" => 'packages#show'
-  get "lib/:name/_edit" => 'packages#edit'
-  put "lib/:name" => 'packages#update'
-  delete "lib/:name" => 'packages#destroy'
+  get "lib" => 'libraries#index'
+  get "lib/_new" => 'libraries#new'
+  post "lib" => 'libraries#create'
+  get "lib/:name" => 'libraries#show'
+  get "lib/:name/_edit" => 'libraries#edit'
+  put "lib/:name" => 'libraries#update'
+  delete "lib/:name" => 'libraries#destroy'
 
   get 'languages' => 'languages#index'
   get 'languages/:name' => 'languages#show'

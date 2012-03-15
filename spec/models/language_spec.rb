@@ -1,11 +1,11 @@
 describe Language do
   subject { Fabricate.build(:language) }
 
-  describe :packages do
+  describe :libraries do
     describe :association do
-      it { should respond_to :packages }
+      it { should respond_to :libraries }
 
-      it { should respond_to :packages= }
+      it { should respond_to :libraries= }
     end
   end
 
