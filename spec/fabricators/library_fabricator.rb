@@ -1,8 +1,8 @@
-Fabricator :package do
+Fabricator :library do
   name { Forgery::Name.full_name.underscore }
   language!
 end
 
-Fabricator :nameless_package, from: :package do
+Fabricator :nameless_library, from: :library do
   name ''
 end
