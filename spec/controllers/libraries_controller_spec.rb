@@ -15,7 +15,7 @@ describe LibrariesController do
     describe :assigns, :library do
       subject { assigns(:library) }
 
-      it { should be_a library }
+      it { should be_a Library }
 
       it { should be_destroyed }
     end
@@ -38,7 +38,7 @@ describe LibrariesController do
     describe :assigns, :library do
       subject { assigns(:library) }
 
-      it { should be_a library }
+      it { should be_a Library }
 
       it { should be_persisted }
     end
@@ -129,7 +129,7 @@ describe LibrariesController do
     describe :assigns, :library do
       subject { assigns(:library) }
 
-      it { should be_a library }
+      it { should be_a Library }
 
       it { should be_persisted }
     end
@@ -148,7 +148,7 @@ describe LibrariesController do
       describe :library do
         subject { assigns(:library) }
 
-        it { should be_a_new library }
+        it { should be_a_new Library }
       end
     end
   end
