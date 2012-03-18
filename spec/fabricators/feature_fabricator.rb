@@ -1,4 +1,4 @@
 Fabricator(:feature) do
-  title "MyString"
+  title { Forgery::LoremIpsum.text }
   topic nil
 end
