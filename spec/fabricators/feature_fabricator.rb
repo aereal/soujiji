@@ -6,3 +6,7 @@ end
 Fabricator :notitle_feature, from: :feature do
   title ''
 end
+
+Fabricator :boolean_feature, from: :feature do
+  answer_type :boolean
+end
