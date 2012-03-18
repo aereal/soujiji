@@ -18,3 +18,7 @@ end
 Fabricator :enumerative_feature, from: :feature do
   answer_type :enumerative
 end
+
+Fabricator :invalid_answer_type_feature, from: :feature do
+  answer_type { Forgery::AnswerType.invalid }
+end
