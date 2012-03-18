@@ -1,5 +1,11 @@
-require 'spec_helper'
-
 describe Topic do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { Fabricate.build(:topic) }
+
+  describe 'with features' do
+    let(:features) { Array.new(3) { Fabricate.build(:feature) } }
+
+    before { subject.features = features }
+
+    it { should be_valid }
+  end
 end
