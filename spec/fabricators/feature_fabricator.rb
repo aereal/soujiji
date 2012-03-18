@@ -14,3 +14,7 @@ end
 Fabricator :selectable_feature, from: :feature do
   answer_type :selectable
 end
+
+Fabricator :enumerative_feature, from: :feature do
+  answer_type :enumerative
+end
