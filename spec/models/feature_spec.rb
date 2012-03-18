@@ -17,19 +17,14 @@ describe Feature do
     it { should be_valid }
   end
 
-  describe 'with #answer_type which is selectable' do
-    subject { Fabricate.build(:selectable_feature) }
+  describe 'with #answer_type which is descriptive' do
+    subject { Fabricate.build(:descriptive_feature) }
 
     it { should be_valid }
   end
 
-  describe 'with #answer_type which is enumerative' do
-    subject { Fabricate.build(:enumerative_feature) }
 
-    it { should be_valid }
-  end
-
-  describe 'with #answer_type which is not boolean, selectable, nor enumerative' do
+  describe 'with #answer_type which is not boolean, nor descriptive' do
     subject { Fabricate.build(:invalid_answer_type_feature) }
 
     it { should_not be_valid }
