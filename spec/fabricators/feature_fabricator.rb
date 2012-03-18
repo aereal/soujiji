@@ -1,6 +1,7 @@
 Fabricator(:feature) do
   title { Forgery::LoremIpsum.text }
   topic nil
+  answer_type { Forgery::AnswerType.valid }
 end
 
 Fabricator :notitle_feature, from: :feature do
