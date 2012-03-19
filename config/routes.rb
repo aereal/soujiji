@@ -1,13 +1,7 @@
 Soujiji::Application.routes.draw do
-  get "lib" => 'libraries#index'
-  get "lib/_new" => 'libraries#new'
-  post "lib" => 'libraries#create'
-  get "lib/:name" => 'libraries#show'
-  get "lib/:name/_edit" => 'libraries#edit'
-  put "lib/:name" => 'libraries#update'
-  delete "lib/:name" => 'libraries#destroy'
-
+  resources :libraries, path_names: {new: :_new, edit: :_edit}
   resources :languages, only: [:index, :show]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

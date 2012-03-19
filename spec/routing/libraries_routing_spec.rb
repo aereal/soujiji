@@ -1,45 +1,45 @@
 describe :routes, :libraries do
-  let(:library_name) { Rack::Utils.escape Fabricate(:library).name }
+  let(:library) { Fabricate(:library) }
 
   describe :GET, :index do
-    subject { {get: '/lib'} }
+    subject { {get: libraries_path} }
 
     it { should route_to 'libraries#index' }
   end
 
   describe :GET, :new do
-    subject { {get: '/lib/_new'} }
+    subject { {get: new_library_path} }
 
     it { should route_to 'libraries#new' }
   end
 
   describe :POST, :create do
-    subject { {post: '/lib'} }
+    subject { {post: libraries_path} }
 
     it { should route_to 'libraries#create' }
   end
 
   describe :GET, :show do
-    subject { {get: "/lib/#{library_name}"} }
+    subject { {get: library_path(library)} }
 
-    it { should route_to controller: 'libraries', action: 'show', name: library_name }
+    it { should route_to controller: 'libraries', action: 'show', id: library.slug }
   end
 
   describe :GET, :edit do
-    subject { {get: "/lib/#{library_name}/_edit"} }
+    subject { {get: edit_library_path(library)} }
 
-    it { should route_to controller: 'libraries', action: 'edit', name: library_name }
+    it { should route_to controller: 'libraries', action: 'edit', id: library.slug }
   end
 
   describe :PUT, :update do
-    subject { {put: "/lib/#{library_name}"} }
+    subject { {put: library_path(library)} }
 
-    it { should route_to controller: 'libraries', action: 'update', name: library_name }
+    it { should route_to controller: 'libraries', action: 'update', id: library.slug }
   end
 
   describe :DELETE, :destroy do
-    subject { {delete: "lib/#{library_name}"} }
+    subject { {delete: library_path(library)} }
 
-    it { should route_to controller: 'libraries', action: 'destroy', name: library_name }
+    it { should route_to controller: 'libraries', action: 'destroy', id: library.slug }
   end
 end
