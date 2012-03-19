@@ -1,6 +1,6 @@
 Fabricator(:answer) do
   feature nil
   library nil
-  type ""
+  type { Forgery::AnswerType.valid }
   content "MyText"
 end
