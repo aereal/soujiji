@@ -1,6 +1,17 @@
 describe Library do
   subject { Fabricate.build(:library) }
 
+  describe :answers do
+    context "already saved related answers" do
+      before do
+        subject.save
+        rand(10).times { Fabricate(:boolean_answer, library: subject) }
+      end
+
+      its(:answers) { should be_all {|a| Answer === a } }
+    end
+  end
+
   describe :language do
     describe :association do
       it { should respond_to :language }
