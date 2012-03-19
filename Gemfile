@@ -10,6 +10,7 @@ gem 'haml-rails'
 gem 'bson_ext'
 gem 'mongoid'
 gem 'enumerize'
+gem 'friendly_id'
 
 # Gems used only for assets and not required
 # in production environments by default.
