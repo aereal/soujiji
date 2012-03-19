@@ -7,4 +7,6 @@ class Answer < ActiveRecord::Base
   belongs_to :library
 
   validates :type, inclusion: {in: %w(boolean descriptive)}
+  validates :content, presence: true, if: 'type && type.descriptive?'
+  validates :content, inclusion: {in: [true, false]}, if: 'type && type.boolean?'
 end

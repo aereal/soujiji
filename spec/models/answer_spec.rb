@@ -1,10 +1,28 @@
 describe Answer do
   subject { Fabricate.build(:answer) }
 
-  describe 'with #type which is descriptive' do
-    before { subject.type = :descriptive }
+  context 'is boolean' do
+    subject { Fabricate.build(:boolean_answer) }
 
     it { should be_valid }
+
+    context "#content given with true" do
+      before { subject.content = true }
+
+      it { should be_valid }
+    end
+
+    context "#content given with false" do
+      before { subject.content = false }
+
+      it { should be_valid }
+    end
+
+    context "#content given with scalar" do
+      before { subject.content = Forgery::LoremIpsum.text }
+
+      it { should_not be_valid }
+    end
   end
 
   describe 'with #type which is boolean' do
