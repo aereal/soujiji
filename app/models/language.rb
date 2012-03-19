@@ -1,5 +1,9 @@
 class Language < ActiveRecord::Base
-  validates :name, presence: true
+  extend FriendlyId
+
+  friendly_id :name, use: :slugged
+
+  validates :name, presence: true, uniqueness: true
 
   has_many :libraries
 end

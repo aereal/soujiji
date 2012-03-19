@@ -20,6 +20,17 @@ describe Language do
       context "when given some name" do
         it { should be_valid }
       end
+
+      context "with duplicated #name" do
+        let(:name) { Forgery::Name.last_name }
+
+        before do
+          Fabricate(:language, name: name)
+          subject.name = name
+        end
+
+        it { should_not be_valid }
+      end
     end
   end
 end
