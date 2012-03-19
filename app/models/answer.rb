@@ -4,6 +4,8 @@ class Answer < ActiveRecord::Base
   enumerize :type, in: [:boolean, :descriptive]
   serialize :content
 
+  self.inheritance_column = :sub_type
+
   belongs_to :feature
   belongs_to :library
 
