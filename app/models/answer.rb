@@ -2,6 +2,7 @@ class Answer < ActiveRecord::Base
   include Enumerize
 
   enumerize :type, in: [:boolean, :descriptive]
+  serialize :content
 
   belongs_to :feature
   belongs_to :library
