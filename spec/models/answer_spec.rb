@@ -1,6 +1,13 @@
 describe Answer do
   subject { Fabricate.build(:answer) }
 
+  context "with Library" do
+    before { subject.library = given_library }
+    let(:given_library) { Fabricate.build(:library) }
+
+    its(:library) { should eq given_library }
+  end
+
   context 'is boolean' do
     subject { Fabricate.build(:boolean_answer) }
 
