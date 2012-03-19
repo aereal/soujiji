@@ -6,11 +6,10 @@ describe :routes, :languages do
   end
 
   describe :GET, :show do
-    subject { {get: "/languages/#{escaped_name}"} }
+    subject { {get: "/languages/#{lang.slug}"} }
 
     let(:lang) { Fabricate(:language) }
-    let(:escaped_name) { Rack::Utils.escape lang.name }
 
-    it { should route_to controller: 'languages', action: 'show', name: escaped_name }
+    it { should route_to controller: 'languages', action: 'show', id: lang.slug }
   end
 end

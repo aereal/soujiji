@@ -7,8 +7,7 @@ Soujiji::Application.routes.draw do
   put "lib/:name" => 'libraries#update'
   delete "lib/:name" => 'libraries#destroy'
 
-  get 'languages' => 'languages#index'
-  get 'languages/:name' => 'languages#show'
+  resources :languages, only: [:index, :show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
