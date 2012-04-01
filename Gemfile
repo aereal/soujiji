@@ -7,8 +7,8 @@ gem 'rails', '3.2.2'
 
 gem 'pg'
 gem 'haml-rails'
-gem 'bson_ext'
-gem 'mongoid'
+# gem 'bson_ext'
+# gem 'mongoid'
 gem 'enumerize'
 gem 'friendly_id'
 
