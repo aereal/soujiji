@@ -1,8 +1,8 @@
 describe Feature do
-  subject { Fabricate.build(:feature) }
+  subject { FactoryGirl.build(:feature) }
 
   describe 'with no #title' do
-    subject { Fabricate.build(:notitle_feature) }
+    subject { FactoryGirl.build(:notitle_feature) }
 
     it { should_not be_valid }
   end
@@ -12,20 +12,20 @@ describe Feature do
   end
 
   describe 'with #answer_type which is boolean' do
-    subject { Fabricate.build(:boolean_feature) }
+    subject { FactoryGirl.build(:boolean_feature) }
 
     it { should be_valid }
   end
 
   describe 'with #answer_type which is descriptive' do
-    subject { Fabricate.build(:descriptive_feature) }
+    subject { FactoryGirl.build(:descriptive_feature) }
 
     it { should be_valid }
   end
 
 
   describe 'with #answer_type which is not boolean, nor descriptive' do
-    subject { Fabricate.build(:invalid_answer_type_feature) }
+    subject { FactoryGirl.build(:invalid_answer_type_feature) }
 
     it { should_not be_valid }
   end

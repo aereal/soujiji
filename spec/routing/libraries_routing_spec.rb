@@ -1,5 +1,5 @@
 describe :routes, :libraries do
-  let(:library) { Fabricate(:library) }
+  let(:library) { FactoryGirl.create(:library) }
 
   describe :GET, :index do
     subject { {get: libraries_path} }

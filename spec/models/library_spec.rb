@@ -1,11 +1,11 @@
 describe Library do
-  subject { Fabricate.build(:library) }
+  subject { FactoryGirl.build(:library) }
 
   describe :answers do
     context "already saved related answers" do
       before do
         subject.save
-        rand(10).times { Fabricate(:boolean_answer, library: subject) }
+        rand(10).times { FactoryGirl.create(:boolean_answer, library: subject) }
       end
 
       its(:answers) { should be_all {|a| Answer === a } }
@@ -21,7 +21,7 @@ describe Library do
 
     describe :validation do
       context "when given no language" do
-        subject { Fabricate.build(:library, language: nil) }
+        subject { FactoryGirl.build(:library, language: nil) }
 
         it { should_not be_valid }
       end
@@ -31,7 +31,7 @@ describe Library do
   describe :name do
     describe :validation do
       context "when given empty name" do
-        subject { Fabricate.build(:nameless_library) }
+        subject { FactoryGirl.build(:nameless_library) }
 
         it { should_not be_valid }
       end

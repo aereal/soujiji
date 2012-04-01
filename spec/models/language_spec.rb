@@ -1,5 +1,5 @@
 describe Language do
-  subject { Fabricate.build(:language) }
+  subject { FactoryGirl.build(:language) }
 
   describe :libraries do
     describe :association do
@@ -12,7 +12,7 @@ describe Language do
   describe :name do
     describe :validation do
       context "when given empty name" do
-        subject { Fabricate.build(:nameless_language) }
+        subject { FactoryGirl.build(:nameless_language) }
 
         it { should_not be_valid }
       end
@@ -25,7 +25,7 @@ describe Language do
         let(:name) { Forgery::Name.last_name }
 
         before do
-          Fabricate(:language, name: name)
+          FactoryGirl.create(:language, name: name)
           subject.name = name
         end
 

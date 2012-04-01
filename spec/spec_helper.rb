@@ -56,7 +56,9 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  Fabrication.clear_definitions
+  require 'factory_girl_rails'
+  FactoryGirl.factories.clear
+  FactoryGirl.reload
 end
 
 # --- Instructions ---

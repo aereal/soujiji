@@ -29,7 +29,7 @@ gem 'jquery-rails'
 # Test features with generators
 group :test, :development do
   gem 'rspec-rails'
-  gem 'fabrication'
+  gem 'factory_girl_rails'
   gem 'forgery'
 end
 
