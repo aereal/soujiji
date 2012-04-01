@@ -1,8 +1,8 @@
 describe Topic do
-  subject { Fabricate.build(:topic) }
+  subject { FactoryGirl.build(:topic) }
 
   describe 'with features' do
-    let(:features) { Array.new(3) { Fabricate.build(:feature) } }
+    let(:features) { Array.new(3) { FactoryGirl.build(:feature) } }
 
     before { subject.features = features }
 

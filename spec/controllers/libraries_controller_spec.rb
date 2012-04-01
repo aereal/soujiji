@@ -2,7 +2,7 @@ describe LibrariesController do
   describe :DELETE, :destroy do
     before { post :destroy, name: library.name }
 
-    let(:library) { Fabricate(:library) }
+    let(:library) { FactoryGirl.create(:library) }
 
     describe :response do
       subject { response }
@@ -25,7 +25,7 @@ describe LibrariesController do
     before { post :update, name: library.name, library: library_attrs }
 
     let(:library_attrs) { library.attributes }
-    let(:library) { Fabricate(:library) }
+    let(:library) { FactoryGirl.create(:library) }
 
     describe :response do
       subject { response }
@@ -53,13 +53,13 @@ describe LibrariesController do
       subject { response }
 
       context "when given missing library" do
-        let(:library) { Fabricate.build(:library) }
+        let(:library) { FactoryGirl.build(:library) }
 
         it { should be_not_found }
       end
 
       context "when given persisted library" do
-        let(:library) { Fabricate(:library) }
+        let(:library) { FactoryGirl.create(:library) }
 
         it { should be_ok }
       end
@@ -70,7 +70,7 @@ describe LibrariesController do
         subject { assigns(:library) }
 
         context "when given persisted library" do
-          let(:library) { Fabricate(:library) }
+          let(:library) { FactoryGirl.create(:library) }
 
           it { should eq library }
         end
@@ -87,13 +87,13 @@ describe LibrariesController do
       subject { response }
 
       context "when given missing library" do
-        let(:library) { Fabricate.build(:library) }
+        let(:library) { FactoryGirl.build(:library) }
 
         it { should be_not_found }
       end
 
       context "when given persisted library" do
-        let(:library) { Fabricate(:library) }
+        let(:library) { FactoryGirl.create(:library) }
 
         it { should be_ok }
       end
@@ -104,7 +104,7 @@ describe LibrariesController do
         subject { assigns(:library) }
 
         context "when given persisted library" do
-          let(:library) { Fabricate(:library) }
+          let(:library) { FactoryGirl.create(:library) }
 
           it { should eq library }
         end
@@ -116,7 +116,7 @@ describe LibrariesController do
     before { post :create, library: library_attrs }
 
     let(:library_attrs) { library.attributes }
-    let(:library) { Fabricate(:library) }
+    let(:library) { FactoryGirl.create(:library) }
 
     describe :response do
       subject { response }
@@ -176,7 +176,7 @@ describe LibrariesController do
           let(:n) { rand(10) }
 
           before do
-            n.times { Fabricate(:library) }
+            n.times { FactoryGirl.create(:library) }
             get :index
           end
 

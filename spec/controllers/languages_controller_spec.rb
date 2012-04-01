@@ -6,13 +6,13 @@ describe LanguagesController do
       subject { response }
 
       context "when given unknown Language" do
-        let(:language) { Fabricate.build(:language) }
+        let(:language) { FactoryGirl.build(:language) }
 
         it { should be_not_found }
       end
 
       context "when given persisted Language" do
-        let(:language) { Fabricate(:language) }
+        let(:language) { FactoryGirl.create(:language) }
 
         it { should be_ok }
       end
@@ -23,13 +23,13 @@ describe LanguagesController do
         subject { assigns(:language) }
 
         context "when given unknown Language" do
-          let(:language) { Fabricate.build(:language) }
+          let(:language) { FactoryGirl.build(:language) }
 
           it { should_not be }
         end
 
         context "when given persisted Language" do
-          let(:language) { Fabricate(:language) }
+          let(:language) { FactoryGirl.create(:language) }
 
           it { should eq language }
         end
@@ -60,7 +60,7 @@ describe LanguagesController do
           let(:n) { rand(10) }
 
           before do
-            n.times { Fabricate(:language) }
+            n.times { FactoryGirl.create(:language) }
             get :index
           end
 

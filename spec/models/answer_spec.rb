@@ -1,15 +1,15 @@
 describe Answer do
-  subject { Fabricate.build(:answer) }
+  subject { FactoryGirl.build(:answer) }
 
   context "with Library" do
     before { subject.library = given_library }
-    let(:given_library) { Fabricate.build(:library) }
+    let(:given_library) { FactoryGirl.build(:library) }
 
     its(:library) { should eq given_library }
   end
 
   context 'is boolean' do
-    subject { Fabricate.build(:boolean_answer) }
+    subject { FactoryGirl.build(:boolean_answer) }
 
     it { should be_valid }
 
@@ -33,7 +33,7 @@ describe Answer do
   end
 
   context "#type with descriptive" do
-    subject { Fabricate.build(:descriptive_answer) }
+    subject { FactoryGirl.build(:descriptive_answer) }
 
     it { should be_valid }
 
