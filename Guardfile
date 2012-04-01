@@ -22,7 +22,7 @@ guard 'rspec', version: 2 do
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
   # Fabricators
-  watch(%r{^spec/fabricators/(.+)_fabricator\.rb$}) {|m| "spec/models/#{m[1]}_spec.rb" }
+  watch(%r{^spec/factories/(.+)\.rb$}) {|m| "spec/models/#{m[1]}_spec.rb" }
 end
 
 
